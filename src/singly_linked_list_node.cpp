@@ -1,9 +1,17 @@
+#include <iostream>
+
 #include "singly_linked_list_node.hh"
+
 
 template <typename T>
 SinglyLinkedListNode<T>::SinglyLinkedListNode(SinglyLinkedListNode<T>* p_next, T p_value){
     next = p_next;
     value = p_value;
+}
+
+template <typename T>
+void SinglyLinkedListNode<T>::display(){
+    std::cout << value;
 }
 
 template <typename T>
@@ -14,6 +22,11 @@ void SinglyLinkedListNode<T>::set_next(SinglyLinkedListNode<T>* p_next){
 template <typename T>
 SinglyLinkedListNode<T>* SinglyLinkedListNode<T>::get_next(){
     return next;
+}
+
+template <typename T>
+T SinglyLinkedListNode<T>::get_value(){
+    return value;
 }
 
 template class SinglyLinkedListNode<int>;

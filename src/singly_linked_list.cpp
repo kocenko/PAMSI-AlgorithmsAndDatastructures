@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "singly_linked_list.hh"
 #include "singly_linked_list_node.hh"
 
@@ -16,16 +18,62 @@ void SinglyLinkedList<T>::add_node_at_beginning(T value){
 template <typename T>
 void SinglyLinkedList<T>::add_node_at_end(T value){
     SinglyLinkedListNode<T>* temp;
-    SinglyLinkedListNode<T>* new_node = new SinglyLinkedListNode<T>(head, value);
+    SinglyLinkedListNode<T>* new_node = new SinglyLinkedListNode<T>(nullptr, value);
     if(head == nullptr){
         set_head(new_node);
     }
     else{
         temp = get_head();
-        while(temp != nullptr){
+        while(temp->get_next() != nullptr){
             temp = temp->get_next();
         }
         temp->set_next(new_node);
+    }
+}
+
+template <typename T>
+SinglyLinkedListNode<T>* SinglyLinkedList<T>::remove_node_from_beginning(){
+    SinglyLinkedListNode<T>* temp = nullptr;
+    if(head == nullptr){
+        std::cerr << "Cannot remove node from the beginning of the linked list because it is empty" << std::endl;
+    }
+    else{
+        temp = get_head();
+        set_head(head->get_next());
+        temp->set_next(nullptr);
+    }
+    return temp;
+}
+
+template <typename T>
+SinglyLinkedListNode<T>* SinglyLinkedList<T>::remove_node_from_end(){
+    SinglyLinkedListNode<T>* temp = nullptr;
+    SinglyLinkedListNode<T>* to_return = nullptr;
+    if(head == nullptr){
+        std::cerr << "Cannot remove node from the end of the linked list because it is empty" << std::endl;
+    }
+    else{
+        temp = get_head();
+        to_return = temp;
+        while (to_return->get_next() != nullptr){
+            temp = to_return;
+            to_return = to_return->get_next();
+        }
+        if (to_return == get_head()){
+            set_head(nullptr);
+        }
+        temp->set_next(nullptr);
+    }
+    return to_return;
+}
+
+template <typename T>
+void SinglyLinkedList<T>::display(){
+    SinglyLinkedListNode<T>* temp = nullptr;
+    temp = get_head();
+    while(temp != nullptr){
+        temp->display();
+        temp = temp->get_next();
     }
 }
 
