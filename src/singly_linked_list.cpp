@@ -68,6 +68,14 @@ SinglyLinkedListNode<T>* SinglyLinkedList<T>::remove_node_from_end(){
 }
 
 template <typename T>
+T SinglyLinkedList<T>::peek_beginning(){
+    if (head == nullptr){
+        throw std::range_error("Cannot peek to the beginning of an empty list");
+    }
+    return head->get_value();
+}
+
+template <typename T>
 void SinglyLinkedList<T>::display(){
     SinglyLinkedListNode<T>* temp = nullptr;
     temp = get_head();
@@ -75,6 +83,12 @@ void SinglyLinkedList<T>::display(){
         temp->display();
         temp = temp->get_next();
     }
+}
+
+template <typename T>
+bool SinglyLinkedList<T>::is_empty(){
+    if (head == nullptr) return true;
+    return false;
 }
 
 template <typename T>

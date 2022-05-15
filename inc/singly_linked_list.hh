@@ -16,7 +16,9 @@ class SinglyLinkedList{
     void add_node_at_end(T value);
     SinglyLinkedListNode<T>* remove_node_from_beginning();
     SinglyLinkedListNode<T>* remove_node_from_end();
+    T peek_beginning();
     void display();
+    bool is_empty();
     
     // Setters
     void set_head(SinglyLinkedListNode<T>* p_head);

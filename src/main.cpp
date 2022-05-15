@@ -1,20 +1,19 @@
 #include <iostream>
 
-#include "singly_linked_list.hh"
+#include "stack.hh"
 
 
 const int bob = 9;
 
 int main(){
-    SinglyLinkedList<int> list;
+    StackLinkedList<int> stack;
 
     for (int i=0; i<bob; i++){
-        list.add_node_at_end(i);
+        stack.push(i);
+        std::cout << "Pushed: " << stack.peek() << std::endl;
     }
 
     for (int i=0; i<bob; i++){
-        list.display();
-        list.remove_node_from_beginning();
-        std::cout << std::endl;
+        std::cout << "Popped: " << stack.pop() << std::endl;
     }
 }
