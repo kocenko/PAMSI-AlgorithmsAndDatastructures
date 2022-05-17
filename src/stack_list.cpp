@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "stack.hh"
+#include "stack_list.hh"
 #include "singly_linked_list.hh"
 #include "singly_linked_list_node.hh"
 

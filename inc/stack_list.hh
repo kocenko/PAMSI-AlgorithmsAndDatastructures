@@ -1,5 +1,5 @@
-#ifndef STACK_HH
-#define STACK_HH
+#ifndef STACK_LIST_HH
+#define STACK_LIST_HH
 
 #include "singly_linked_list.hh"
 
@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif  // STACK_HH
+#endif  // STACK_LIST_HH
