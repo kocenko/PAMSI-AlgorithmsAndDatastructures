@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 
 #include "stack_list.hh"
 #include "singly_linked_list.hh"
