@@ -143,10 +143,36 @@ bool MinBHeap<T>::is_empty(){
 
 template <typename T>
 void MinBHeap<T>::display(){
-    for(int i=0; i<add_idx; i++){
-        std::cout << array[i]->get_key() << " ";
+    int height, beginning, end, max_spaces, spaces;
+    if (add_idx < 1){
+        std::cerr << "Cannot display empty heap." << std::endl;
     }
-    std::cout << std::endl;
+    else{
+        height = std::ceil(std::log2(add_idx+1));
+        max_spaces = std::pow(2, height)*2;
+        spaces = max_spaces;
+
+        for(int i=1; i<=height; i++){
+            spaces = max_spaces / std::pow(2,i);
+            beginning = std::pow(2,i-1)-1;
+            end = std::pow(2,i)-2;
+            
+            for(int j=beginning; j<=end; j++){
+                if(j<add_idx){
+                    for(int s=0; s<spaces; s++){
+                        std::cout << " ";
+                    }
+                    std::cout << array[j]->get_key();
+                    for(int s=0; s<spaces; s++){
+                        std::cout << " ";
+                    }
+                }
+            }
+            // spaces = max_spaces / std::pow(2, i);
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+    }
 }
 
 template <typename T>
