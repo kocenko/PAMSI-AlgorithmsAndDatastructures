@@ -14,6 +14,8 @@ public:
     ~QueueArray();
 
     void enqueue(T element);
+    T dequeue();
+    void display();
 
     // Setters
     void set_max_size(int new_size);

@@ -2,21 +2,33 @@
 
 #include "stack_list.hh"
 #include "stack_array.hh"
+#include "queue_array.hh"
 
 
 const int max_size = 9;
 
 int main(){
-    StackArray<int> stack(max_size);
+    QueueArray<int> q(4);
 
-    for (int i=0; i<max_size; i++){
-        stack.push(i);
-        std::cout << "Pushed: " << stack.peek() << std::endl;
-    }
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.dequeue();
+    q.enqueue(4);
+    q.dequeue();
+    q.dequeue();
+    q.display();
 
-    std::cout << std::endl;
+    // StackArray<int> stack(max_size);
 
-    for (int i=0; i<max_size; i++){
-        std::cout << "Popped: " << stack.pop() << std::endl;
-    }
+    // for (int i=0; i<max_size; i++){
+    //     stack.push(i);
+    //     std::cout << "Pushed: " << stack.peek() << std::endl;
+    // }
+
+    // std::cout << std::endl;
+
+    // for (int i=0; i<max_size; i++){
+    //     std::cout << "Popped: " << stack.pop() << std::endl;
+    // }
 }
